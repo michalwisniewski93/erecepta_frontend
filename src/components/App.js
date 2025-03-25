@@ -6,11 +6,12 @@ import '../css/style.css'
 import {Provider} from 'react-redux'
 import store from '../redux/store'
 import DoctorsProfiles from './DoctorsProfiles';
-import NewPatient from './NewPatient';
 import NewRecipe from './NewRecipe';
 import PatientsList from './PatientsList';
 import RecipesList from './RecipesList';
 import AddDoctor from './AddDoctor';
+import AddPatient from './AddPatient';
+
 
 const App = () => {
   return (
@@ -24,8 +25,9 @@ const App = () => {
         <Route path="/addnewrecipe" element={<NewRecipe/>} />
         <Route path="/patients" element={<PatientsList/>} />
         <Route path="/recipes" element={<RecipesList/>} />
-        <Route path="/addnewpatient" element={<NewPatient/>}/>
         <Route path="/adddoctor" element={<AddDoctor/>}/>
+        <Route path="/addpatient" element={<AddPatient/>}/>
+       
       </Routes>
     </Router>
     </Provider>

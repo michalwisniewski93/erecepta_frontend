@@ -143,7 +143,7 @@ ul.mainMenu__list {
 
 
 
-button.returntomainmenu, button.adddoctor {
+button.returntomainmenu, button.adddoctor, button.addpatient {
     color: rgb(1, 226, 95);
     background-color: black;
     padding: 10px;
@@ -160,7 +160,7 @@ button.returntomainmenu:hover {
     background-color: black;
 }
 
-.doctorsProfiles {
+.doctorsProfiles, .activeProfile, .patientProfiles, .recipeProfiles {
     display: flex;
     flex-direction: row;
 
@@ -172,7 +172,7 @@ button.returntomainmenu:hover {
 
 }
 
-.doctorsProfiles .doctorsProfiles__item {
+.doctorsProfiles .doctorsProfiles__item, .activeProfile .doctorsProfiles__item, .patientProfiles .patientProfiles__item, .recipeProfiles .recipeProfiles__item {
     flex: 1 1 48%;
     padding-left: 5px;
     border: 3px dotted rgb(11, 98, 60);
@@ -182,18 +182,18 @@ button.returntomainmenu:hover {
 }
 
 @media (max-width: 500px) {
-    .doctorsProfiles {
+    .doctorsProfiles, .activeProfile, .patientProfiles, .recipeProfiles {
         gap: 10px;
         flex-direction: column;
     }
 
-    .doctorsProfiles .doctorsProfiles__item {
+    .doctorsProfiles .doctorsProfiles__item, .activeProfile .doctorsProfiles__item, .patientProfiles .patientProfiles__item, .recipeProfiles .recipeProfiles__item {
         padding-left: 0px;
         max-width: 100%;
     }
 }
 
-.doctorsProfiles .doctorsProfiles__item button.edit {
+.doctorsProfiles .doctorsProfiles__item button.edit, .activeProfile .doctorsProfiles__item button.edit, .patientProfiles .patientProfiles__item button.edit {
     color: rgb(255, 255, 255);
     background-color: rgb(70, 105, 212);
     padding: 10px;
@@ -206,7 +206,7 @@ button.returntomainmenu:hover {
     margin-left: 5px;
 }
 
-.doctorsProfiles .doctorsProfiles__item button.delete {
+.doctorsProfiles .doctorsProfiles__item button.delete, .activeProfile .doctorsProfiles__item button.delete, .patientProfiles .patientProfiles__item button.delete {
     color: rgb(255, 255, 255);
     background-color: rgb(164, 22, 22);
     padding: 10px;
@@ -219,7 +219,7 @@ button.returntomainmenu:hover {
     margin-left: 5px;
 }
 
-.doctorsProfiles .doctorsProfiles__item button.setAsActive {
+.doctorsProfiles .doctorsProfiles__item button.setAsActive, .activeProfile .doctorsProfiles__item button.setAsActive, .recipeProfiles .recipeProfiles__item button.previewAndPrint {
     color: rgb(1, 226, 95);
     background-color: black;
     padding: 10px;
@@ -294,6 +294,42 @@ button.returntomainmenu:hover {
     display: block;
 }
 
+.sitecontent textarea {
+    color: grey;
+    font-size: 22px;
+    font-family: 'Funnel Display', sans-serif;
+    display: block;
+    font-weight: 100;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+
+.sitecontent option {
+    color: grey;
+    font-size: 22px;
+    font-family: 'Funnel Display', sans-serif;
+    display: block;
+    font-weight: 100;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+
+.sitecontent select {
+    color: grey;
+    font-size: 22px;
+    font-family: 'Funnel Display', sans-serif;
+    display: block;
+    font-weight: 100;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+
 .sitecontent label {
     color: black;
     font-size: 16px;
@@ -322,4 +358,103 @@ button.returntomainmenu:hover {
     .sitecontent input {
         width: 95%;
     }
+}
+
+
+.sitecontent span.numberofstep {
+    font-family: 'Funnel Display', sans-serif;
+    color: white;
+    background-color: rgb(3, 40, 24);
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 32px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    text-align: center;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sitecontent h2 {
+    margin-top: 5px;
+}
+
+@media(max-width: 500px) {
+    .sitecontent option {
+        width: 95%;
+    }
+
+    .sitecontent select {
+        width: 95%;
+    }
+}
+
+
+.recipePopUpContainer {
+    background-color: rgb(11, 98, 60);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.recipePopUp {
+    width: 360px;
+    background-color: white;
+
+
+
+}
+
+.recipePopUp .recipeImgs {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+
+}
+
+.recipePopUp .recipeImgs img#applogo {
+    width: 247px;
+    height: 62px;
+}
+
+.recipePopUp .recipeImgs img#barcode {
+    width: 357px;
+    height: 44px;
+}
+
+.recipePopUp .recipeBarCode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.recipePopUp .recipeBarCode p.barcode {
+    font-family: 'Funnel Display';
+    font-size: 16px;
+}
+
+.doctorsignature {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.recipeButtons button.print, .recipeButtons button.return {
+    color: rgb(1, 226, 95);
+    background-color: black;
+    padding: 10px;
+    font-family: 'Funnel Display', sans-serif;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 5px;
 }

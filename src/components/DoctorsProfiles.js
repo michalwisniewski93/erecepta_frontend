@@ -17,12 +17,26 @@ const DoctorsProfiles = ({updatePermission, permission}) => {
   const [editingPhoneNumber, setEditingPhoneNumber] = useState('')
   const [editingAddress, setEditingAddress] = useState('')
   const [editingId, setEditingId] = useState('')
+  const [activeProfile, setActiveProfile] = useState('')
+  
+   
 
+  const [activeProfileName, setActiveProfileName] = useState('')
+  const [activeProfileSurname, setActiveProfileSurname] = useState('')
+  const [activeProfileAccessCode, setActiveProfileAccessCode] = useState('')
+  const [activeProfilePwz, setActiveProfilePwz] = useState('')
+  const [activeProfilePhoneNumber, setActiveProfilePhoneNumber] = useState('')
+  const [activeProfileAddress, setActiveProfileAddress] = useState('')
+  const [activeProfileId, setActiveProfileId] = useState('')
 
   useEffect(() => {
     axios.get('http://localhost:5000/doctors')
     .then((response) => setDoctors(response.data))
     .catch((err) => console.log('Wystąpił błąd podczas pobierania danych lekarzy, błąd:' + err))
+
+    axios.get('http://localhost:5000/activeprofile')
+    .then((response) => setActiveProfile(response.data))
+    .catch((err) => console.log('Wystąpił błąd podczas pobierania profilu aktywnego, błąd:' + err))
 
   }, [])
 
@@ -88,6 +102,36 @@ const navigate = useNavigate()
      .catch((err) => console.error("Error updating doctor:", err));
      setVisibilityEditForm(null)
    } 
+
+
+const handleEditActiveProfile = (ap_id, ap_name, ap_surname, ap_accesscode, ap_pwz, ap_phonenumber, ap_address) => {
+  const id = ap_id
+  const name = ap_name
+  const surname = ap_surname
+  const accesscode = ap_accesscode
+  const pwz = ap_pwz
+  const phonenumber = ap_phonenumber
+  const address = ap_address
+
+
+  
+  {/* tu będzie put (zacząlem pisać)*/}
+  axios.put(`http://localhost:5000/activeprofile/67db02e79c2109b9f22d3868`, {name, surname,accesscode, pwz, phonenumber, address })
+  .then((response) => setActiveProfile({
+    name: response.data.name,
+    surname: response.data.surname,
+    accesscode: response.data.accesscode,
+    pwz: response.data.pwz,
+    phonenumber: response.data.phonenumber,
+    address: response.data.address
+  }))
+  .catch((err) => console.log('error updating active profile ' + err))
+
+}
+
+
+
+
   
 
  
@@ -119,10 +163,17 @@ const navigate = useNavigate()
           </>
          : null}
 
-        <h1>Profile lekarzy</h1>
+
+        <h1>Profil aktywny</h1>
+        <div className="activeProfile">
+          <div className="doctorsProfiles__item">
+          <h1>imię: {activeProfile.name} nazwisko: {activeProfile.surname}</h1><h3>kod dostępu: {activeProfile.accesscode}</h3><h3>numer pwz: {activeProfile.pwz}</h3><h3>numer telefonu: {activeProfile.phonenumber}</h3><h3>adres gabinetu: {activeProfile.address}</h3>
+          </div>
+        </div>
+        <h1>Profile lekarzy - ({doctors.length})</h1>
         
         <div className="doctorsProfiles">
-          {doctors.map(doctor => <div className="doctorsProfiles__item" key={doctor._id}><h1>imię: {doctor.name} nazwisko: {doctor.surname}</h1><h3>kod dostępu: {doctor.accesscode}</h3><h3>numer pwz: {doctor.pwz}</h3><h3>numer telefonu: {doctor.phonenumber}</h3><h3>adres gabinetu: {doctor.address}</h3><button className="edit" onClick={() => handleEditDoctor(doctor._id, doctor.name, doctor.surname, doctor.accesscode, doctor.pwz, doctor.phonenumber, doctor.address)}>Edytuj profil</button><button className="delete" onClick={() => handleDeleteDoctor(doctor._id)}>Usuń profil</button><button className="setAsActive">Ustaw jako aktywny</button></div>)}
+          {doctors.map(doctor => <div className="doctorsProfiles__item" key={doctor._id}><h1>imię: {doctor.name} nazwisko: {doctor.surname}</h1><h3>kod dostępu: {doctor.accesscode}</h3><h3>numer pwz: {doctor.pwz}</h3><h3>numer telefonu: {doctor.phonenumber}</h3><h3>adres gabinetu: {doctor.address}</h3><button className="edit" onClick={() => handleEditDoctor(doctor._id, doctor.name, doctor.surname, doctor.accesscode, doctor.pwz, doctor.phonenumber, doctor.address)}>Edytuj profil</button><button className="delete" onClick={() => handleDeleteDoctor(doctor._id)}>Usuń profil</button><button className="setAsActive" onClick={() => handleEditActiveProfile(doctor._id, doctor.name, doctor.surname, doctor.accesscode, doctor.pwz, doctor.phonenumber, doctor.address)}>Ustaw jako aktywny</button></div>)}
         </div>
         </div>
 

@@ -1,0 +1,47 @@
+[33mcommit bed7ee271101c19ee79475b32afbd5166f1b5bf3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Michal Wisniewski <michalwisniewskifrontend@onet.pl>
+Date:   Wed Mar 19 17:56:07 2025 +0100
+
+    podstawowy frontend
+
+[33mcommit 0a43ab2f5cabc959e714009beef0a46917780939[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Mon Feb 3 15:09:27 2025 +0100
+
+    Update README.md
+
+[33mcommit bfe6adeb081dc44b17f772d0e87b7477c115a5a5[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Fri Jan 31 15:20:43 2025 +0100
+
+    Update webpack.config.js
+
+[33mcommit c243f852cb888f50f02c605a1ad25f8a1d2c5e65[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Thu Jan 30 20:13:36 2025 +0100
+
+    Update webpack.config.js
+
+[33mcommit 6b48f8ca57826fdc62b6e0a3108a2ee95fec3f77[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Wed Jan 29 14:45:10 2025 +0100
+
+    Update README.md
+
+[33mcommit 3a622fad57596a1f66d251ce3e48760d7e1fd2c7[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Wed Jan 29 14:43:57 2025 +0100
+
+    Update README.md
+
+[33mcommit 3a9d1ba6e9b56fe0ad7278fd285197fc8d04d117[m
+Author: Michał Wiśniewski Front End Developer <michalwisniewskifrontend@onet.pl>
+Date:   Wed Jan 29 14:37:11 2025 +0100
+
+    Create README.md
+
+[33mcommit 0b039612d1baab572a26aa91d19812f6b7383de3[m
+Author: Michal Wisniewski <michalwisniewskifrontend@onet.pl>
+Date:   Wed Jan 29 14:35:03 2025 +0100
+
+    react boilerplate

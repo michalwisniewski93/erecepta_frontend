@@ -13,6 +13,7 @@ const AddDoctor = ({updatePermission, permission}) => {
     const [pwz, setPwz] = useState('')
     const [phonenumber, setPhoneNumber] = useState('')
     const [address, setAddress] = useState('')
+    const [doctors, setDoctors] = useState([])
  
 
 

@@ -36,7 +36,7 @@ const Logout = ({updatePermission, permission}) => {
                         <li><Link to="/addnewrecipe">Wystaw nową receptę</Link></li>
                         <li><Link to="/patients">Lista pacjentów</Link></li>
                         <li><Link to="/recipes">Lista recept</Link></li>
-                        <li><Link to="/addnewpatient">Dodaj nowego pacjenta</Link></li>
+                        <li><Link to="/addpatient">Dodaj nowego pacjenta</Link></li>
                     </ul>
                 </nav>
             </div>
