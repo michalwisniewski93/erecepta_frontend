@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header'
 import axios from 'axios'
-import {connect, useDispatch} from 'react-redux'
-import { changePermission } from '../redux/actions';
 
 
-const LoginForm = (props) => {
+
+const LoginForm = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [receivedData, setReceivedData] = useState([])
   const [wrongData, setWrongData] = useState(false)
+  const [permission, setPermission] = useState(false)
 
 
 
@@ -27,7 +27,14 @@ const LoginForm = (props) => {
 
     receivedData.map(rd => {
         if(rd.login === login && rd.password === password){
-            props.updatePermission()
+          const permission = true
+
+          axios.put(`http://localhost:5000/permission/67e2b7cf7f829d702632c1e4`, {permission})
+          .then((response) => setPermission({
+            permission: response.data.permission,
+          }))
+          .catch((err) => console.log('error updating permission ' + err))
+
             navigate('/login')
            
             
@@ -83,8 +90,5 @@ const LoginForm = (props) => {
 
 
 
-const mapDispatchToProps = (dispatch) => ({
-  updatePermission: () => dispatch(changePermission()),  
-});
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default LoginForm;

@@ -70,6 +70,13 @@ useEffect(() => {
 
             }
 
+
+            const handleDeleteRecipe = (id) => {
+              axios.delete(`http://localhost:5000/recipes/${id}`)
+             .then(() => setRecipes(recipes.filter(recipe => recipe._id !== id)))
+             .catch((err) => console.error("Error deleting recipe:", err));
+            }
+
              
    const  scrollToTop = () =>  {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -86,7 +93,7 @@ useEffect(() => {
         <h1>Lista recept - ({recipes.length}) (od najnowszej do najstarszej)</h1>
 
         <div className="recipeProfiles">
-          {recipes.map(recipe => <div className="recipeProfiles__item" key={recipe._id}><h3>pacjent: {recipe.patient}</h3><h3>kod dostępu lekarza: {recipe.doctorsaccesscode}</h3><h3>imię lekarza: {recipe.doctorsname}</h3><h3>nazwisko lekarza: {recipe.doctorssurname}</h3><h3>pwz lekarza: {recipe.doctorspwz}</h3><h3>nr telefonu lekarza: {recipe.doctorsphonenumber}</h3><h3>adres gabinetu: {recipe.doctorsaddress}</h3><h3>treść recepty: {recipe.recipescontentinfo}</h3><h3>data wystawienia: {recipe.dateofissuedata}</h3><h3>kod kreskowy: {recipe.barcodenumber}</h3><h3>nr systemowy pacjenta: {recipe.patientsystemnumber}</h3><button className="previewAndPrint" onClick={() => handlePreviewAndPrint(recipe.patient,recipe.doctorsaccesscode, recipe.doctorsname, recipe.doctorssurname, recipe.doctorspwz, recipe.doctorsphonenumber, recipe.doctorsaddress, recipe.recipescontentinfo, recipe.dateofissuedata, recipe.barcodenumber, recipe.patientsystemnumber )}>Podgląd recepty i wydruk</button></div>).reverse()}
+          {recipes.map(recipe => <div className="recipeProfiles__item" key={recipe._id}><h3>pacjent: {recipe.patient}</h3><h3>kod dostępu lekarza: {recipe.doctorsaccesscode}</h3><h3>imię lekarza: {recipe.doctorsname}</h3><h3>nazwisko lekarza: {recipe.doctorssurname}</h3><h3>pwz lekarza: {recipe.doctorspwz}</h3><h3>nr telefonu lekarza: {recipe.doctorsphonenumber}</h3><h3>adres gabinetu: {recipe.doctorsaddress}</h3><h3>treść recepty: {recipe.recipescontentinfo}</h3><h3>data wystawienia: {recipe.dateofissuedata}</h3><h3>kod kreskowy: {recipe.barcodenumber}</h3><h3>nr systemowy pacjenta: {recipe.patientsystemnumber}</h3><button className="previewAndPrint" onClick={() => handlePreviewAndPrint(recipe.patient,recipe.doctorsaccesscode, recipe.doctorsname, recipe.doctorssurname, recipe.doctorspwz, recipe.doctorsphonenumber, recipe.doctorsaddress, recipe.recipescontentinfo, recipe.dateofissuedata, recipe.barcodenumber, recipe.patientsystemnumber )}>Podgląd recepty i wydruk</button><button className="deleteRecipe" onClick={() => handleDeleteRecipe(recipe._id)}>Usuń</button></div>).reverse()}
         </div>
 
 

@@ -458,3 +458,16 @@ button.returntomainmenu:hover {
     cursor: pointer;
     margin-left: 5px;
 }
+
+.recipeProfiles button.deleteRecipe {
+    color: rgb(255, 255, 255);
+    background-color: rgb(164, 22, 22);
+    padding: 10px;
+    font-family: 'Funnel Display', sans-serif;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 5px;
+}
